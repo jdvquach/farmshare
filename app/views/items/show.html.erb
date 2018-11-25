@@ -1,0 +1,32 @@
+<% if flash[:errors].present?  %>
+   <strong>Please correct the following errors:</strong>
+   <ol>
+   <% flash[:errors].each do |error| %>
+     <li><%= error %></li>
+   <% end %>
+   </ol>
+<% end %>
+
+<!--  -->
+<div class='container'>
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= @item.summary %></h2>
+    <br>
+    <h4><%= @item.description %></h4>
+  </div>
+</div>
+</div>
+
+<hr>
+<div>
+<% if @item.item_image.present? %>
+<%= image_tag @item.item_image, class: 'postTitle' %>
+<% end %>
+</div>
+<br>
+<hr>
+<!--Only show if ite  belong to user.  -->
+<% if @current_user.present? && @item.user == @current_user  %>
+<%= link_to 'Edit Item', edit_item_path(@item) %>
+<% end  %>
