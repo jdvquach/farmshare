@@ -27,4 +27,5 @@ delete "/login" => "session#destroy" # logout (delete session)
 
 resources :items
 
+#post "items/search" => "items#search", as: 'search_items'
 end

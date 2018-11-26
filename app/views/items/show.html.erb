@@ -21,7 +21,7 @@
 <hr>
 <div>
 <% if @item.item_image.present? %>
-<%= image_tag @item.item_image, class: 'postTitle' %>
+<%= cl_image_tag @item.item_image, class: 'postTitle' %>
 <% end %>
 </div>
 <br>
@@ -29,4 +29,7 @@
 <!--Only show if ite  belong to user.  -->
 <% if @current_user.present? && @item.user == @current_user  %>
 <%= link_to 'Edit Item', edit_item_path(@item) %>
+|
+<%= link_to 'Email', edit_item_path(@item) %>
+
 <% end  %>

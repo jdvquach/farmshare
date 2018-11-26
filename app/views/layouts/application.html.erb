@@ -12,13 +12,31 @@
 
   <body>
     <h1>FarmShare</h1>
+    <br>
+    <br>
+
     <nav>
+
+
+  <div class="searchItem">
+    <%= form_tag items_path, :method => :get do %>
+    <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near" ,:class=>"btn btn-info",:name => nil %>
+    </p>
+  <% end %>
+  </div>
+
+
+
       <% if @current_user.present? %>
         <h2>Welcome, <%= @current_user.name %> </h2>
+        
+         <%= link_to 'Home ', items_path %>
         |
         <%= link_to 'Logout', login_path, method: 'delete' %>
         |
-        <%= link_to 'View Posts', items_path %>
+        <%= link_to 'View Items', items_path %>
         |
         <%= link_to 'My Account', user_path(@current_user) %>
       <% else %>

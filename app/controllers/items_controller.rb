@@ -14,8 +14,14 @@ class ItemsController < ApplicationController
     @item.user = @current_user
     # raise "hell"
     # could also write: item.user_id = @current_user.id
-    @item.save
+      if params[:file].present?
+          response = Cloudinary::Uploader.upload params[:file]
+          @item.item_image = response["public_id"]
+          @item.save
+      end
+    #@item.save
     if @item.persisted?
+      #raise('hell')
       redirect_to items_path # redirect to index
     else
       # @post did not get saved to the DB
@@ -31,7 +37,15 @@ class ItemsController < ApplicationController
 
   # READ
   def index
-    @items = Item.all.order('created_at DESC')
+
+    if params[:search].present?
+
+      #@items = Item.near(params[:search], 10,:units=>:km, :order => :distance)
+      @items = Item.near(params[:search], 10, :units=>:km)
+    else
+      @items = Item.all.order('created_at DESC')
+    end
+
   end
 
   def show
@@ -55,6 +69,11 @@ class ItemsController < ApplicationController
     # check whether the update actually changed the DB or not
     # (.update returns true if it did change the DB, false if there was an error)
     if @item.update( item_params )
+      if params[:file].present?
+          response= Cloudinary::Uploader.upload params[:file]
+          @item.item_image = response["public_id"]
+          @item.save
+      end
       # successfully updated the DB
       redirect_to item_path(@item) # redirect to show page
     else
@@ -71,10 +90,12 @@ class ItemsController < ApplicationController
     redirect_to( items_path )
   end
 
+
+
 private
 
     #Security for the the CREATE and UPDATE
     def item_params
-        params.require(:item).permit(:summary, :description, :item_image, :qty, :latitude, :longitude, :address, :category_id)
+        params.require(:item).permit(:summary, :description, :item_image, :qty, :address, :category_id)
     end
 end

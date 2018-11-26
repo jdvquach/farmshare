@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.destroy_all
+
+Category.create!([
+  {name: "Weed and Pest Controls", image: nil},
+  {name: "Household", image: nil},
+  {name: "Fencing", image: nil},
+  {name: "Animal and Livestock", image: nil},
+  {name: "Work Gear", image: nil},
+  {name: "Water Management", image: nil},
+  {name: "Shearing Supplies", image: nil},
+  {name: "Plants", image: nil}
+])

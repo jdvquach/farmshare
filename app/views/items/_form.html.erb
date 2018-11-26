@@ -10,7 +10,7 @@
    </ol>
 <% end %>
 
-<%= form_for @item do |f| %>
+<%= form_for @item, html: {multipart: true} do |f| %>
   <p>
   <%= f.label :summary %><br>
   <%= f.text_field :summary %>
@@ -20,14 +20,14 @@
   <%= f.text_area :description %>
   </p>
   <p>
-   <%= f.label :item_image %><br>
-   <%= f.text_field :item_image %>
+   <%= f.label :item_image, 'Item Image'  %><br>
+   <%= f.cl_image_upload :item_image %>
   </p>
   <p>
    <%= f.label :qty %><br>
    <%= f.number_field :qty %>
   </p>
-  
+
   <p>
   <%= f.label :category_id, 'Category' %>
   <%= f.collection_select :category_id, Category.all, :id, :name, prompt: 'Please choose or edit a category:' %>
