@@ -26,6 +26,34 @@
 </div>
 <br>
 <hr>
+
+
+<!--The div element for the map -->
+<div id="map">
+</div>
+<script>
+  // The location of item
+  //var whereLat = @item.latitude;
+  // console.log(`Where Lat Is:${@whereLat}`);
+  //var whereLng = @item.longitude;
+// Initialize and add the map
+function initMap() {
+
+  // var itemLoc = {lat: -33.8119855, lng: 151.1827005};
+  var itemLoc = {lat: <%= @item.latitude %>, lng: <%= @item.longitude %>};
+  console.log(itemLoc)
+  // The map
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 12, center: itemLoc});
+  // The marker.
+  var marker = new google.maps.Marker({position: itemLoc, map: map});
+}
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwRD1Tg7-nm-4XPH8zXZzGV2Jf8pwQywE&callback=initMap">
+</script>
+
 <!--Only show if ite  belong to user.  -->
 <% if @current_user.present? && @item.user == @current_user  %>
 <%= link_to 'Edit Item', edit_item_path(@item) %>
@@ -33,24 +61,3 @@
 <%= link_to 'Email', edit_item_path(@item) %>
 
 <% end  %>
-
-<!--The div element for the map -->
-   <div id="map">
-   </div>
-<script>
-/ Initialize and add the map
-function initMap() {
-  // The location of item
-  // var itemLoc = {lat: -25.344, lng: 131.036};
-  var itemLoc = {lat: item.latitude, lng: item.logitude};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker.
-  var marker = new google.maps.Marker({position: item, map: map});
-}
-</script>
-
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwRD1Tg7-nm-4XPH8zXZzGV2Jf8pwQywE&callback=initMap">
-</script>

@@ -50,6 +50,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find params[:id]
+    @whereLat = (@item.latitude)
+    @whereLng = (@item.longitude)
 
   end
 
