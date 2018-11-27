@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
+    
   </head>
 
   <body>
@@ -31,7 +32,7 @@
 
       <% if @current_user.present? %>
         <h2>Welcome, <%= @current_user.name %> </h2>
-        
+
          <%= link_to 'Home ', items_path %>
         |
         <%= link_to 'Logout', login_path, method: 'delete' %>

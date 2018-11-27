@@ -68,3 +68,4 @@ gem 'rails_12factor', group: :production
 gem 'jquery-rails'
 
 gem 'geocoder'
+gem 'webpacker'

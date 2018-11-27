@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
 
+  def app
+    # raise 'hell'
+  end
+
   # CREATE
   def new
         @item = Item.new   # create a blank object for the form_for helper to use
@@ -13,7 +17,7 @@ class ItemsController < ApplicationController
     @item = Item.new( item_params )  # strong params
     @item.user = @current_user
     # raise "hell"
-    # could also write: item.user_id = @current_user.id
+
       if params[:file].present?
           response = Cloudinary::Uploader.upload params[:file]
           @item.item_image = response["public_id"]
@@ -32,7 +36,6 @@ class ItemsController < ApplicationController
       # in by the user when they submitted it the first time
       render :new
     end
-
   end
 
   # READ
@@ -91,10 +94,7 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to( items_path )
   end
-
-
-
-private
+  private
 
     #Security for the the CREATE and UPDATE
     def item_params
