@@ -1,4 +1,4 @@
-<%= javascript_pack_tag 'application' %>
+
 
 <div>
 <h2>All Items Nearby</h2>
@@ -7,7 +7,7 @@
 <% @items.each do |item| %>
   <li>
     <a href="<%= item_path(item.id) %>">
-      <%= item.summary  %>
+      <%= item.summary %>
 
     </a>
   </li>

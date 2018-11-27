@@ -46,7 +46,15 @@ class ItemsController < ApplicationController
       #@items = Item.near(params[:search], 10,:units=>:km, :order => :distance)
       @items = Item.near(params[:search], 10, :units=>:km)
     else
+
       @items = Item.all.order('created_at DESC')
+
+      # handle both HTML and JSON requests
+      respond_to do |format|
+        format.html
+        format.json { render json: @items  }
+      end
+
     end
 
   end
@@ -55,6 +63,11 @@ class ItemsController < ApplicationController
     @item = Item.find params[:id]
     @whereLat = (@item.latitude)
     @whereLng = (@item.longitude)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @item  }
+    end
 
   end
 

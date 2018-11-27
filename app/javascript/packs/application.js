@@ -10,10 +10,23 @@
 // console.log('Hello World from react')
 
 import React from 'react';
-import { render } from 'react-dom';
-import ItemListing from '../components/ItemListing';
+import ReactDOM from 'react-dom';
+import ItemsIndex from '../components/ItemsIndex';
+import {HashRouter as Router, Route} from 'react-router-dom';
+import ItemDetail from '../components/ItemDetail';
+
+const Routes = (
+  <Router>
+  <div>
+    <Route exact path="/" component={ ItemsIndex}/>
+    <Route exact path="/:id" component={ ItemDetail }/>
+  </div>
+  </Router>
+);
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.body.appendChild(document.createElement('div'));
-  render(<ItemListing/>, container);
+  ReactDOM.render(Routes, container);
 });
+
+// ReactDOM.render(Routes, document.getElementByID('root'));
