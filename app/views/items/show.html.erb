@@ -51,7 +51,7 @@ function initMap() {
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwRD1Tg7-nm-4XPH8zXZzGV2Jf8pwQywE&callback=initMap">
 </script>
 
-<!--Only show if ite  belong to user.  -->
+<!--Only show if it belong to user.  -->
 <% if @current_user.present? && @item.user == @current_user  %>
 <%= link_to 'Edit Item', edit_item_path(@item) %>
 |

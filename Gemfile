@@ -60,7 +60,7 @@ gem 'pry-rails'
 # gem 'cloudinary'
 gem "cloudinary", "1.10.1.pre.rc"
 
-gem 'bootstrap', '~> 4.1.3'
+# gem 'bootstrap', '~> 4.1.3'
 
 # Below added for Heroku
 gem 'rails_12factor', group: :production
