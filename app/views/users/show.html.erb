@@ -10,6 +10,17 @@
 </div>
 <br>
 
+<div class='userLst'>
 <strong>Name:</strong> <%= @user.name %><br>
 
 <%= cl_image_tag @user.image, alt: @user.name, class: 'img-responsive img-thumbnail pull-left' %>
+
+<h3>   Your Listing</h3>
+  <ul>
+  <% @user.items.each do |item| %>
+    <li>
+      <%= link_to item.summary, item_path(item.id) %>
+    </li>
+  <% end %>
+  </ul>
+</div>

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  // background-image: url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d2b5c3a30ad1ec478df74c83536d47e3&auto=format&fit=crop&w=1950&q=80');
+  background-image: url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d2b5c3a30ad1ec478df74c83536d47e3&auto=format&fit=crop&w=1950&q=80');
   background-size: cover;
   height: 100%;
   color: white!important;
@@ -71,4 +71,16 @@ h1,h2 {
         width: 60vw;
         height: 55vh;
         align-content: flex-end;
+}
+.itemDesc {
+
+margin-left: 10%;
+width: 80% !important;
+color:white;
+}
+
+.userLst {
+
+text-align: center;
+// margin-left: 5%;
 }

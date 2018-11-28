@@ -10,8 +10,6 @@ class ItemsIndex extends React.Component {
     this.state = {
       items: []
     };
-
-
   }
 
   componentDidMount(){
@@ -33,11 +31,13 @@ class ItemsIndex extends React.Component {
       <div>
         <h1>All Items</h1>
         <ul>
-          { this.state.items.map(item => <li onClick={()=> this.gotoItem(item.id)}>{item.summary}</li>) }
+          { this.state.items.map(item => <li onClick={()=> this.gotoItem(item.id)}>
+          {item.summary},
+          {item.address}</li>) }
+
         </ul>
       </div>
     );
   }
 }
-
 export default ItemsIndex

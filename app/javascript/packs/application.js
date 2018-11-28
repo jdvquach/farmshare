@@ -18,7 +18,7 @@ import ItemDetail from '../components/ItemDetail';
 const Routes = (
   <Router>
   <div>
-    <Route exact path="/" component={ ItemsIndex}/>
+    <Route exact path="/" component={ ItemsIndex }/>
     <Route exact path="/:id" component={ ItemDetail }/>
   </div>
   </Router>

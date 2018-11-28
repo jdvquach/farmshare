@@ -9,16 +9,14 @@ export default class ItemDetail extends React.Component {
     this.state = {
       item: []
     };
-
-
   }
 
   componentDidMount(){
     let id = this.props.match.params.id;
-    // console.log(id)
+
     axios.get(`/items/${id}.json`)
     .then(response => {
-      console.log( response );
+      // console.log( response );
       this.setState({item: response.data})
     })
     .catch( console.error );
@@ -30,8 +28,8 @@ export default class ItemDetail extends React.Component {
       <div>
         <h1>All Items</h1>
         <ul>
-          <li>{this.state.item.address}</li>
           <li>{this.state.item.summary}</li>
+          <li>{this.state.item.address}</li>
         </ul>
       </div>
     );
