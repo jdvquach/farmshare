@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
     private
 
-
     def check_if_logged_in
       unless @current_user.present?
 
@@ -30,5 +29,4 @@ class ApplicationController < ActionController::Base
       # then we clear the session key
       session[:user_id] = nil unless @current_user.present?
     end
-
 end

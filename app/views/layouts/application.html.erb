@@ -7,28 +7,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
     <%= cloudinary_js_config %>
-    
+
   </head>
 
   <body>
-    <h1>FarmShare</h1>
-    <br>
-    <br>
 
+    <a href="<%= root_path %>"><h1>FarmShare</h1></a>
+    <br>
     <nav>
-
-
-  <div class="searchItem">
+    <div class="searchItem">
     <%= form_tag items_path, :method => :get do %>
     <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near" ,:class=>"btn btn-info",:name => nil %>
+    <%= submit_tag "Search Near" ,:class=>"button",:name => nil %>
     </p>
-  <% end %>
-  </div>
-
-
+    <% end %>
+    </div>
 
       <% if @current_user.present? %>
         <h2>Welcome, <%= @current_user.name %> </h2>

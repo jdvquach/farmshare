@@ -1,12 +1,10 @@
 <div>
-<h2>All Items Nearby</h2>
-
+<h2>Items</h2>
 <ul>
-<% @items.each do |item| %>
+  <% @items.each do |item| %>
   <li>
     <a href="<%= item_path(item.id) %>">
-      <%= item.summary %>
-
+    <%= item.summary %>
     </a>
   </li>
 <% end %>

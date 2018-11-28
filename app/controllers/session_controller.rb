@@ -1,16 +1,8 @@
 class SessionController < ApplicationController
-  # def new
-  # end
-  #
-  # def create
-  # end
-  #
-  # def destroy
-  # end
   def new
 
   end
-  
+
   def create
     # see if the email address entered actually corresponds to a user in the table
     user = User.find_by email: params[:email]

@@ -5,7 +5,7 @@ body {
   background-image: url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d2b5c3a30ad1ec478df74c83536d47e3&auto=format&fit=crop&w=1950&q=80');
   background-size: cover;
   height: 100%;
-  color: white!important;
+  color: white;
   background-color: black;
 
 }
@@ -57,14 +57,14 @@ img {
 }
 
 a {
-color: white!important;
+color: white;
 
 
 }
 
 h1,h2 {
 
-  color: green!important;
+  color: yellow;
 }
 
  #map {
@@ -75,12 +75,33 @@ h1,h2 {
 .itemDesc {
 
 margin-left: 10%;
-width: 80% !important;
+width: 80%;
 color:white;
 }
 
 .userLst {
-
+margin: 0 auto;
 text-align: center;
 // margin-left: 5%;
+}
+
+.button {
+  display: inline-block;
+  background: #65909E;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 5px;
+  border-radius: 5px;
+  box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  &:hover {
+    box-shadow: 0px 37px 20px -20px rgba(0,0,0,0.2);
+    transform: translate(0px, -10px) scale(1.2)};
+}
+
+.avartar {
+
+  border-radius: 50%;
+  max-width: 10vw;
 }
