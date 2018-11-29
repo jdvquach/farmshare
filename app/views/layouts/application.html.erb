@@ -21,10 +21,66 @@
     <%= form_tag items_path, :method => :get do %>
     <p>
     <%= text_field_tag :search, params[:search] %>
+    <br>
+    OR
+    <br>
+    <input type="checkbox" name="use_geolocation" value="true"> Use Current Location
+    <br>
+    <!-- within
+    <select name="radius" id="radius">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select>
+    of current location -->
     <%= submit_tag "Search Near" ,:class=>"button",:name => nil %>
     </p>
+    <input type="hidden" name="latitude" value="" id="lat"  />
+    <input type="hidden" name="longitude" value="" id="lng" />
+    <input type="hidden" name="search_form" value="true"  />
     <% end %>
     </div>
+
+  <script>
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    let lat;
+    let lng;
+
+    function success(pos) {
+      var crd = pos.coords;
+
+      console.log('Your current position is:');
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+
+      position = {lat: crd.latitude, lng: crd.longitude}
+      console.log(position);
+
+      // set the coordinates into the hidden form fields to submit to Rails
+      document.getElementById('lat').value = crd.latitude;
+      document.getElementById('lng').value = crd.longitude;
+
+      return position;
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${erdcr.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  </script>
+
+
 
       <% if @current_user.present? %>
         <h2>Welcome, <%= @current_user.name %> </h2>

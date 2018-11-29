@@ -41,11 +41,20 @@ class ItemsController < ApplicationController
   # READ
   def index
 
-    if params[:search].present?
+    if params[:search_form].present?
+
+      # either search by address, or search by current location
+      if params[:use_geolocation]
+        location = [ params[:latitude].to_f, params[:longitude].to_f  ]
+      else
+        location = params[:search]
+      end
 
       #@items = Item.near(params[:search], 10,:units=>:km, :order => :distance)
-      @items = Item.near(params[:search], 10, :units=>:km)
+      @items = Item.near(location, 10, :units=>:km)
+
     else
+      # Not a search - show all items
 
       @items = Item.all.order('created_at DESC')
 
