@@ -58,13 +58,13 @@
     function success(pos) {
       var crd = pos.coords;
 
-      console.log('Your current position is:');
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
+      //console.log('Your current position is:');
+      //console.log(`Latitude : ${crd.latitude}`);
+      //console.log(`Longitude: ${crd.longitude}`);
+      //console.log(`More or less ${crd.accuracy} meters.`);
 
       position = {lat: crd.latitude, lng: crd.longitude}
-      console.log(position);
+      //console.log(position);
 
       // set the coordinates into the hidden form fields to submit to Rails
       document.getElementById('lat').value = crd.latitude;
@@ -79,8 +79,6 @@
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   </script>
-
-
 
       <% if @current_user.present? %>
         <h2>Welcome, <%= @current_user.name %> </h2>
