@@ -1,24 +1,32 @@
-# README
+# FarmShare
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application for hobby farmers to trade or share their excess supplies to charities or other hobby farmers.
 
-Things you may want to cover:
+## Screenshot:
 
-* Ruby version
+![Screenshot](/images/farmshare.jpg)
+![Screenshot](/images/draw1.jpg)
+![Screenshot](/images/draw2.jpg)
 
-* System dependencies
+## Features:
 
-* Configuration
+* User authentication
+* APIs - GeoCoder,Google Maps,GeoLocation
+* Hosts on Heroku platform
+* Upload photos from your PC
+* CRUD
 
-* Database creation
+## App Demo:
 
-* Database initialization
+https://farmshare01.herokuapp.com/
 
-* How to run the test suite
+## Technology Stack:
 
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby on Rails
+* CSS
+* HTML
+* PostgreSQL
+* React(some)
 
-* Deployment instructions
 
-* ...
+## Note/Issues:
